@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>夜间阅读器</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.8/index.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1 class="app-title">夜间阅读器</h1>
+        <label class="upload-button">
+          <input id="file-input" type="file" accept=".pdf,.txt,.epub,.mobi,.doc,.docx" />
+          <span>导入文件</span>
+        </label>
+        <div id="error-message" class="error-message" role="alert" hidden></div>
+        <div class="chapter-list" id="chapter-list"></div>
+      </aside>
+      <main class="content">
+        <header class="chapter-header">
+          <h2 id="chapter-title">请选择章节</h2>
+          <div class="chapter-actions">
+            <button id="copy-button" disabled>复制章节</button>
+            <button id="export-button" disabled>导出章节</button>
+          </div>
+        </header>
+        <section class="preview" id="chapter-preview">
+          <p class="placeholder">导入文件后在左侧选择章节进行预览。</p>
+        </section>
+        <footer class="slider-container">
+          <label for="position-slider">阅读进度</label>
+          <input type="range" id="position-slider" min="0" max="100" value="0" disabled />
+        </footer>
+      </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  </body>
+</html>
